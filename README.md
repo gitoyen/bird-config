@@ -16,6 +16,7 @@ Pour toutes questions / commentaires / discussions, vous pouvez nous contacter v
 
 * mél : contact (AT) gitoyen.net
 * irc : gitoyen / geeknode
+* www : http://www.gitoyen.net
 
 ## Principe de fonctionnement
 
