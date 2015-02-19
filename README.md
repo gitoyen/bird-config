@@ -28,7 +28,7 @@ Pour toutes questions / commentaires / discussions, vous pouvez nous contacter v
 ## Organisation
 
     $ cat etc/local/bird/bird.conf 
-    # Gitoyen <contact@gitoyen.net>
+    # Gitoyen contact (AT) gitoyen.net
     #
     # vim: set ts=4:sw=4
 
