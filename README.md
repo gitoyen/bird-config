@@ -1,5 +1,5 @@
 
-Configuration BIRD d'un routeur de bordure
+GITOYEN : Configuration BIRD d'un routeur de bordure
 ==========================================
 
 Ce dépot contient la configuration d'un routeur de bordure de Gitoyen. Il s'agit d'une configuration prenant en compte :
