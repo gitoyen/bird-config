@@ -1,32 +1,32 @@
 
-GITOYEN : Configuration BIRD d'un routeur de bordure
-==========================================
+GITOYEN: BIRD configuration for a border router
+===============================================
 
-Ce dépot contient la configuration d'un routeur de bordure de Gitoyen. Il s'agit d'une configuration prenant en compte :
+This repository contains the configuration for one of Gitoyen's border router. Configurations is made of:
 
-  * La gestion des communautés ;
-  * La gestion de livraisons (membres, clients) ;
-  * La gestion des peering/transits.
+  * BGP communities management;
+  * Traffic delivery (members, clients) management;
+  * Peering & transit management.
 
-N'hésitez pas à vous en inspirer.
+Feel free to take inspiration from it.
 
-## Nous contacter
+## Contact us
 
-Pour toutes questions / commentaires / discussions, vous pouvez nous contacter via :
+For any question / comment / discussion, you can reach us through:
 
-* mél : contact (AT) gitoyen.net ;
-* irc : gitoyen / geeknode ;
-* www : http://www.gitoyen.net.
+* mail: contact (AT) gitoyen.net;
+* irc: #gitoyen / irc.geeknode.net ;
+* www: http://www.gitoyen.net
 
-## Principe de fonctionnement
+## Some principles
 
-* Les routes importées depuis une session bgp sont étiquetées par une communauté indiquant sa provenance.
-* Les routes exportées vers une session bgp sont filtrées sur la base des communautés en fonction de leur provenance.
-  * Exemples : 
-    * Les routes exportées vers une session avec un transitaire comprennent uniquement les routes étiquetées membres/clients/interne.
-    * Les routes exportées vers une session avec un membre comprennent toutes les routes de l'Internet.
-   
-## Organisation
+* Routes imported from a bgp session are tagged with a community according to its origin.
+* Routes exported to a bgp session are filtered using communities based on their orgin. FIXME: origin/destination ?
+  * Examples:
+    * Routes exported to a transit operater session only contain properly tagged ones (members/clients/internal).
+    * Routes exported to a member session are all Internet routes (full-view).
+
+## Structure
 
     $ cat etc/local/bird/bird.conf 
     # Gitoyen contact (AT) gitoyen.net
@@ -35,23 +35,23 @@ Pour toutes questions / commentaires / discussions, vous pouvez nous contacter v
 
     log syslog all;
 
-    # Parametres specifiques au routeur
+    # Router specific configuration
     include "/etc/local/bird/common/local.conf";
 
-    # Filtres/Fonctions communs a tous les protocoles
+    # Filters/Functions common to all protocols
     include "/etc/local/bird/bird/filters.conf";
 
-    # Gestion des protocoles lies au noyau
+    # Kernel protocols management
     include "/etc/local/bird/common/kernel.conf";
 
-    # Routes statiques
+    # Static routes
     include "/etc/local/bird/bird/static.conf";
 
     # OSPF (Backbone)
     include "/etc/local/bird/common/ospf.conf";
 
-    # Filtres/Fonctions pour BGP
+    # Filters/Functions for BGP
     include "/etc/local/bird/common/bgp-filters.conf";
 
-    # BGP (Livraisons, Transit, Peering)
+    # BGP (Delivery, Transit, Peering)
     include "/etc/local/bird/bird/bgp.conf";
