@@ -20,9 +20,9 @@ For any question / comment / discussion, you can reach us through:
 
 ## Some principles
 
-* Routes imported from a bgp session are tagged with a community according to its origin.
-* Routes exported to a bgp session are filtered using communities based on their orgin. FIXME: origin/destination ?
-  * Examples:
+* Routes imported from a bgp session are tagged with a community according to the bgp peer.
+* Routes exported to a bgp session are filtered using communities based on the bgp peer.
+  * Examples
     * Routes exported to a transit operater session only contain properly tagged ones (members/clients/internal).
     * Routes exported to a member session are all Internet routes (full-view).
 
