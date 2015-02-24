@@ -1,6 +1,4 @@
-
-GITOYEN: BIRD configuration for a border router
-===============================================
+# [Gitoyen](http://www.gitoyen.net/): BIRD configuration for a border router
 
 This repository contains the configuration for one of Gitoyen's border router. Configurations is made of:
 
@@ -14,21 +12,21 @@ Feel free to take inspiration from it.
 
 For any question / comment / discussion, you can reach us through:
 
-* mail: contact (AT) gitoyen.net;
-* irc: #gitoyen / irc.geeknode.net ;
+* mail: `contact (AT) gitoyen.net`
+* irc: `#gitoyen` (using `irc.geeknode.net` server)
 * www: http://www.gitoyen.net
 
 ## Some principles
 
-* Routes imported from a bgp session are tagged with a community according to the bgp peer.
-* Routes exported to a bgp session are filtered using communities based on the bgp peer.
-  * Examples
-    * Routes exported to a transit operater session only contain properly tagged ones (members/clients/internal).
+* Routes imported from a BGP session are tagged with a community according to the BGP peer.
+* Routes exported to a BGP session are filtered using communities based on the BGP peer.
+  * Examples:
+    * Routes exported to a transit operator session only contain properly tagged ones (members/clients/internal).
     * Routes exported to a member session are all Internet routes (full-view).
 
 ## Structure
 
-    $ cat etc/local/bird/bird.conf 
+    $ cat etc/local/bird/bird.conf
     # Gitoyen contact (AT) gitoyen.net
     #
     # vim: set ts=4:sw=4
